@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+ <head>
+    <title>Kolchosenpunk</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Arimo|Arvo|Libre+Baskerville|Noto+Serif|Poppins|Shadows+Into+Light" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <div class="page-header">
+        <h1> <div class="logo"> <img src="static/media/logo_punk8.png"> </div> <div class="blog-title"> <a>Kolchosenpunk</a> </div> </h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                
+                <div class="post">
+                    <div class="date">
+                        <p>Publiziert am: {{ post.published_date }}</p>
+                    </div>
+                    <div class="post-title">
+                        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} </a></h1>
+                    </div>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
