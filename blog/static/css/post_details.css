@@ -8,15 +8,6 @@
 }
 
 @font-face {
-    font-family: 'russianregular';
-    src: url('russian-webfont.woff2') format('woff2'),
-         url('russian-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
     font-family: 'tokarevregular';
     src: url('tokarev-webfont.woff2') format('woff2'),
          url('tokarev-webfont.woff') format('woff');
@@ -36,12 +27,43 @@
 .post-title {
 	/*font-family: 'molotregular', Fallback, sans-serif;*/
 	color: #F05A43;
-	font-family: 'gnutypewriterstandard', Fallback, sans-serif;
+	font-family: 'gnutypewriterstandard', Fallback, Courier;
 	/*font-family: Courier,sans-serif;*/
 	font-weight: bold
 	font-style: italic;
 }
 
+.list-of-contents {
+    font-family: Courier,sans-serif;	
+	color: #000000;
+	margin-left: 0px;
+	margin-bottom: 30px;
+}
+
+.Gedichte{margin-left: 80px;
+}
+.Kurzgeschichten{margin-left: 80px;
+}
+
+.Erzaehlungen{margin-left: 80px;
+}
+
+#Gedichte{margin-left: 60px;
+}
+#Kurzgeschichten{margin-left: 60px;
+}
+
+#Erzaehlungen{margin-left: 60px;
+}
+
+a{ cursor: pointer;
+	color: #000000;
+}
+
+a:hover{
+    color: inherit; /* Inherits color property from its parent */
+	text-decoration: none;
+}
 
 .page-header {
     background-color: #ffffff;

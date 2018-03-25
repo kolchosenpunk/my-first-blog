@@ -2,20 +2,73 @@
 <html>
  <head>
     <title>Kolchosenpunk</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Acme|Arimo|Arvo|Libre+Baskerville|Noto+Serif|Poppins|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
     <div class="page-header">
-        <h1> <div class="logo"> <img src="static/media/logo_punk8.png"> </div> <div class="blog-title"> <a>Kolchosenpunk</a> </div> </h1>
+        <h1> <div class="logo"> <img src="static/media/logo_final.png"> </div> <div class="blog-title"> <a>Kolchosenpunk</a> </div> </h1>
     </div>
+	<div class="list-of-contents">
+	<div class = "Inhaltsverzeichnis">
+
+<script>
+$(document).ready(function(){
+    $("#Kurzgeschichten").click(function(){
+        $(".Kurzgeschichten").toggle();
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#Gedichte").click(function(){
+        $(".Gedichte").toggle();
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#Erzaehlungen").click(function(){
+        $(".Erzaehlungen").toggle();
+    });
+});
+</script>
+</head>
+<body>
+<div class=list-of-contents>
+<a href"#" id="Kurzgeschichten" >► Kurzgeschichten ({{short_stories}})</a><br>
+		<p class="Kurzgeschichten" style="display:none">
+		{% for post in posts %}
+		{% if post.genre == 'Kurzgeschichten' %}
+		<a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} {{ post.published_date|date:"(F Y)" }} </a><br>
+		{% endif %}
+		{% endfor %}
+	</p>
+<a href"#" id="Erzaehlungen" >► Erzählungen ({{narratives}})</a><br>
+		<p class="Erzaehlungen" style="display:none">
+		{% for post in posts %}
+		{% if post.genre == 'Erzählungen' %}
+		<a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} {{ post.published_date|date:"(F Y)" }} </a> <br>
+		{% endif %}
+		{% endfor %}
+		</p>
+<a href"#" id="Gedichte" >► Gedichte ({{poems}})</a><br>
+		<p class="Gedichte" style="display:none">
+		{% for post in posts %}
+		{% if post.genre == 'Gedichte' %}
+		<a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} {{ post.published_date|date:"(F Y)" }} </a> <br>
+		{% endif %}
+		{% endfor %}
+		</p>
+</div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
                 {% for post in posts %}
-                
                 <div class="post">
                     <div class="date">
                         <p>Publiziert am: {{ post.published_date }}</p>
